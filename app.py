@@ -70,11 +70,25 @@ def booking():
     
     return render_template('booking.html', current_year=current_year)
 
+from flask import Flask, render_template, request, redirect, flash
+
 @app.route('/view-appointments')
 def view_appointments():
-    current_year = datetime.now().year  # <-- ADD THIS
+    # Simple password protection
+    password = request.args.get('password')
+    
+    if password != 'therapy123':
+        return '''
+        <h2>Admin Login Required</h2>
+        <form>
+            <input type="password" name="password" placeholder="Enter password">
+            <button type="submit">Login</button>
+        </form>
+        '''
+    
+    current_year = datetime.now().year
     appointments = Appointment.query.all()
-    return render_template('admin.html', appointments=appointments, current_year=current_year)  # <-- PASS IT HERE
+    return render_template('admin.html', appointments=appointments, current_year=current_year)
 
 @app.route('/booking-simple')
 def booking_simple():
