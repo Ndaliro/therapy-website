@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Book an Appointment</h2>
+    
+    <p>Fill out the form below:</p>
+    
+    <form method="POST" id="bookingForm" style="max-width: 500px; padding: 20px; border: 2px solid #4a6fa5; border-radius: 10px;">
+        <div style="margin-bottom: 20px;">
+            <label><strong>Full Name:</strong></label><br>
+            <input type="text" name="name" required 
+                   style="width: 100%; padding: 10px; font-size: 16px;"
+                   placeholder="Enter your full name">
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <label><strong>Email:</strong></label><br>
+            <input type="email" name="email" required 
+                   style="width: 100%; padding: 10px; font-size: 16px;"
+                   placeholder="Enter your email">
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <label><strong>Phone:</strong></label><br>
+            <input type="tel" name="phone" required 
+                   style="width: 100%; padding: 10px; font-size: 16px;"
+                   placeholder="Enter your phone number">
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <label><strong>Service:</strong></label><br>
+            <select name="service" required style="width: 100%; padding: 10px; font-size: 16px;">
+                <option value="">-- Select a service --</option>
+                <option value="Individual Therapy">Individual Therapy - ksh 1,800 hr</option>
+                <option value="Group Counseling">Group Counselling - ksh 3,500 1.5hrs</option>
+                <option value="Marriage Couples Therapy">Marriage Couples Therapy - ksh 2,800</option>
+                <option value="Relationship Therapy">Relationship Therapy - Ksh 2,500 1hr</option>
+                <option value="Children / Teenage Counselling & Therapy">Children / Teenage Counselling & Therapy - Ksh 1,500 1hr</option>
+                <option value="Career Counselling & Consultation">Career Counselling & Consultation - Ksh 1,800 1hr</option>
+                <option value="Mental Health & Life Coaching">Mental Health & Life Coaching - Ksh 1,800</option>
+                <option value="Psychological Consultations & Assessments">Psychological Consultations & Assessments - Ksh 2,800 1hr</option>
+                <option value="Schools & Institutions Mentorship Counselling or Training">Schools & Institutions Mentorship Counselling or Training - ksh 13,500(within Mombasa)/ ksh18,500(outside Mombasa)(3-5 hours)</option>
+                <option value="Organizations Psychological Services">Organizations Psychological Services - ksh 18,500 (within Mombasa)/ ksh 23,200(oustide Mombasa)</option>
+                <option value="Corporate Wellness Counselling & Training">Corporate Wellness Counselling & Training - Ksh 27,500</option>
+                <option value="Court Annexed Meditation/Arbitration Consultancy">Court Annexed Meditation/Arbitration Consultancy - ksh 12,000 (2-3 hours)</option>
+            </select>
+        </div>
+        
+        <div style="margin-bottom: 30px;">
+            <label><strong>Appointment Date:</strong></label><br>
+            <input type="date" name="date" required 
+                   style="width: 100%; padding: 10px; font-size: 16px;">
+        </div>
+        
+        <!-- BIG VISIBLE BUTTON -->
+        <button type="submit" 
+                id="bookButton"
+                style="background: #4a6fa5; 
+                       color: white; 
+                       padding: 15px 30px; 
+                       font-size: 18px; 
+                       border: none; 
+                       border-radius: 5px; 
+                       cursor: pointer;
+                       width: 100%;">
+            📅 BOOK NOW
+        </button>
+        
+        <p style="margin-top: 10px; font-size: 14px; color: #666;">
+            Clicking "BOOK NOW" will submit your appointment request.
+        </p>
+    </form>
+    
+    <!-- Debug info -->
+    <div style="margin-top: 40px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+        <h3>Form Status:</h3>
+        <p id="formStatus">Ready to submit...</p>
+    </div>
+    
+    <script>
+        // Debug script
+        console.log("Booking page loaded");
+        
+        const form = document.getElementById('bookingForm');
+        const button = document.getElementById('bookButton');
+        const status = document.getElementById('formStatus');
+        
+        if (form && button) {
+            console.log("Form and button found!");
+            
+            form.addEventListener('submit', function(e) {
+                console.log("Form submit event triggered!");
+                status.innerHTML = "Submitting form...";
+                status.style.color = "blue";
+                
+                // Change button text
+                button.innerHTML = "⏳ Processing...";
+                button.style.background = "#777";
+                button.disabled = true;
+            });
+            
+            // Add click listener to button too
+            button.addEventListener('click', function(e) {
+                console.log("Button clicked!");
+            });
+            
+        } else {
+            console.error("Form or button not found!");
+            status.innerHTML = "ERROR: Form not properly loaded";
+            status.style.color = "red";
+        }
+    </script>
+{% endblock %}

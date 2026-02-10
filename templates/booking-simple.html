@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Simple Booking Test</h2>
+    
+    <p>Try this simple form:</p>
+    
+    <form method="POST">
+        <p><input type="text" name="name" placeholder="Your Name"></p>
+        <p><input type="email" name="email" placeholder="Your Email"></p>
+        
+        <button type="submit" style="background: blue; color: white; padding: 10px 20px;">
+            TEST BOOK NOW
+        </button>
+    </form>
+    
+    <hr>
+    <p>Or try this link: <a href="/test-redirect">Test if redirect works</a></p>
+{% endblock %}
