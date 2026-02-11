@@ -9,15 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-12345')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///appointments.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# Email Configuration (Gmail)
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'testmindfultherapy@gmail.com'  # Your girlfriend's email
-app.config['MAIL_PASSWORD'] = 'Test@123456'  # You'll need an App Password!
-app.config['MAIL_DEFAULT_SENDER'] = 'testmindfultherapy@gmail.com'
 
-mail = Mail(app)
 
 db = SQLAlchemy(app)
 
@@ -37,80 +29,6 @@ class Appointment(db.Model):
 # Create tables
 with app.app_context():
     db.create_all()
-
-    mail = Mail(app)
-
-# ===== EMAIL NOTIFICATION FUNCTIONS =====
-def send_booking_confirmation(appointment):
-    """Send email confirmation to client and notification to therapist"""
-    
-    # Email to therapist (Miss Somoe)
-    therapist_msg = Message(
-        subject="🔔 New Appointment Booked!",
-        recipients=['ryanndaliro0@gmail.com']  # ← CHANGE TO YOUR EMAIL
-    )
-    
-    therapist_msg.body = f"""
-NEW APPOINTMENT BOOKED
-━━━━━━━━━━━━━━━━━━━━━━━
-
-Client: {appointment.name}
-ID Number: {appointment.id_number}
-Email: {appointment.email}
-Phone: {appointment.phone}
-
-Service: {appointment.service}
-Date: {appointment.date}
-Time: {appointment.time}
-
-Status: {appointment.status}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-View all appointments: http://localhost:5000/view-appointments?password=therapy123
-"""
-    
-    # Email to client (confirmation)
-    client_msg = Message(
-        subject="✅ Your Appointment Confirmation - Mindful Therapy",
-        recipients=[appointment.email]  # This sends to the client's email
-    )
-    
-    client_msg.body = f"""
-Thank you for booking an appointment with Mindful Therapy!
-
-━━━━━━━━━━━━━━━━━━━━━━━
-APPOINTMENT CONFIRMATION
-━━━━━━━━━━━━━━━━━━━━━━━
-
-Name: {appointment.name}
-Service: {appointment.service}
-Date: {appointment.date}
-Time: {appointment.time}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-
-📍 Location: Mombasa, Kenya
-📞 Phone: 0707 828164
-📧 Email: somoerajab90@gmail.com
-
-Need to reschedule? Please contact us at least 24 hours in advance.
-
-We look forward to meeting you!
-
-━━━━━━━━━━━━━━━━━━━━━━━
-Mindful Therapy
-Miss Somoe Rajab, Counseling Psychologist
-"""
-    
-    try:
-        # Send both emails
-        mail.send(therapist_msg)
-        mail.send(client_msg)
-        print(f"✅ Emails sent successfully for appointment {appointment.id}")
-        return True
-    except Exception as e:
-        print(f"❌ Error sending emails: {e}")
-        return False
     
 
 @app.route('/')
