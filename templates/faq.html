@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="faq-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p class="faq-subtitle">Find answers to common questions about our therapy services</p>
+        </div>
+
+        <!-- FAQ Categories -->
+        <div class="faq-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="booking">Booking</button>
+            <button class="category-btn" data-category="sessions">Sessions</button>
+            <button class="category-btn" data-category="payment">Payment</button>
+            <button class="category-btn" data-category="privacy">Privacy</button>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="faq-list">
+            <!-- BOOKING CATEGORY -->
+            <div class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>How do I book an appointment?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can book an appointment through our <a href="/calendar">online calendar</a>. Simply select your preferred date and time, fill in your details, and submit. You'll receive a confirmation email shortly after booking.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>Can I reschedule or cancel my appointment?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can reschedule or cancel your appointment up to 24 hours before your scheduled time. Please call us at 0707828164 or email somoerajab90@gmail.com to make changes. Late cancellations may incur a fee.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>How far in advance should I book?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We recommend booking at least 2-3 days in advance to secure your preferred time slot. However, we do accommodate last-minute appointments when availability permits. Check our <a href="/calendar">live calendar</a> for current availability.</p>
+                </div>
+            </div>
+
+            <!-- SESSIONS CATEGORY -->
+            <div class="faq-item" data-category="sessions">
+                <div class="faq-question">
+                    <h3>How long is each therapy session?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Individual therapy sessions are 1 hour. Couples therapy and group counseling sessions are 1.5 hours. Corporate and institutional sessions vary based on the package (3-5 hours).</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sessions">
+                <div class="faq-question">
+                    <h3>What happens during the first session?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Your first session is an opportunity for us to get to know each other. We'll discuss what brings you to therapy, your goals, and any concerns you have. It's also a chance for you to ask questions and see if we're a good fit. There's no pressure - you decide if you want to continue.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sessions">
+                <div class="faq-question">
+                    <h3>Do you offer online/virtual sessions?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer secure, confidential video therapy sessions for clients who prefer online counseling or are unable to attend in-person sessions. Simply indicate your preference when booking.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sessions">
+                <div class="faq-question">
+                    <h3>How many sessions will I need?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>The number of sessions varies depending on your goals and needs. Some clients benefit from short-term therapy (6-12 sessions), while others prefer longer-term support. We'll discuss this together and create a plan that works for you.</p>
+                </div>
+            </div>
+
+            <!-- PAYMENT CATEGORY -->
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>What are your rates?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li><strong>Individual Therapy:</strong> Ksh 1,800 (1 hour)</li>
+                        <li><strong>Group Counseling:</strong> Ksh 3,500 (1.5 hours)</li>
+                        <li><strong>Marriage/Couples Therapy:</strong> Ksh 2,800 (1 hour)</li>
+                        <li><strong>Children/Teenage Counselling:</strong> Ksh 1,500 (1 hour)</li>
+                        <li><strong>Career Counselling:</strong> Ksh 1,800 (1 hour)</li>
+                        <li><strong>Psychological Assessments:</strong> Ksh 2,800 (1 hour)</li>
+                        <li><strong>Corporate Wellness:</strong> Ksh 27,500 (full day)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>Do you accept insurance?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Currently, we do not process insurance claims directly. However, we can provide you with a receipt that you can submit to your insurance provider for potential reimbursement. Please check with your insurance company about out-of-network mental health benefits.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>What payment methods do you accept?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept M-Pesa, bank transfer, and cash payments. Payment is due at the time of service. Receipts are provided for all transactions.</p>
+                </div>
+            </div>
+
+            <!-- PRIVACY CATEGORY -->
+            <div class="faq-item" data-category="privacy">
+                <div class="faq-question">
+                    <h3>Is my information kept confidential?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. Confidentiality is the foundation of effective therapy. All your personal information and session content are kept strictly confidential, with exceptions only in cases of imminent harm or as required by law. We follow all KCPA and Kenya Psychological Association ethical guidelines.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="privacy">
+                <div class="faq-question">
+                    <h3>Why do you need my ID number?</h3>
+                    <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Your ID number is used for our confidential client records and verification purposes. It is stored securely and never shared with third parties. This is standard practice for professional psychological services in Kenya.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Still Have Questions? -->
+        <div class="faq-contact">
+            <h2>Still Have Questions?</h2>
+            <p>We're here to help. Contact us directly:</p>
+            <div class="contact-options">
+                <div class="contact-option">
+                    <i class="fas fa-phone"></i>
+                    <h4>Call Us</h4>
+                    <p>0707 828164</p>
+                </div>
+                <div class="contact-option">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Us</h4>
+                    <p>somoerajab90@gmail.com</p>
+                </div>
+                <div class="contact-option">
+                    <i class="fas fa-calendar"></i>
+                    <h4>Book Now</h4>
+                    <p><a href="/calendar">Schedule a session</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // FAQ Accordion Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close other items (optional - remove this for multiple open)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Category Filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const faqItems_all = document.querySelectorAll('.faq-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                faqItems_all.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

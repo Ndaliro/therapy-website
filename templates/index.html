@@ -1,30 +1,199 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Welcome to Mindful Therapy</h2>
-    <p>Professional psychological support for your mental wellbeing.</p>
-    
-    <div style="margin: 40px 0;">
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-             alt="Therapy Session" 
-             style="width: 100%; max-width: 600px; border-radius: 10px;">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-subtitle">Welcome to Mindful Therapy</span>
+            <h1>Your Journey to <span class="highlight">Mental Wellness</span> Starts Here</h1>
+            <p class="hero-description">Professional, compassionate therapy services tailored to your unique needs. Experience a safe space for healing and growth.</p>
+            <div class="hero-buttons">
+                <a href="/booking" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Book Appointment
+                </a>
+                <a href="/about" class="btn btn-outline">
+                    <i class="fas fa-user-md"></i> Meet Your Therapist
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Confidential</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <span>Flexible Scheduling</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <span>Evidence-Based Care</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-wrapper">
+                <img src="{{ url_for('static', filename='images/photo2.jpg') }}" 
+                     alt="Therapy Session" 
+                     class="hero-main-image">
+            </div>
+        </div>
     </div>
-    
-    <h3>Our Services</h3>
-    <ul>
-        <li>Individual Therapy - ksh 1,800 1hr</li>
-        <li>Group Counseling - ksh 3,500 1.5hrs</li>
-        <li>Marriage Couples Therapy - Ksh 2,800 1hr</li>
-        <li>Relationship Therapy - Ksh 2,500 1hr</li>
-        <li>Children / Teenage Counselling & Therapy - Ksh 1,500 1hr</li>
-        <li>Career Counselling & Consultation - Ksh 1,800 1hr</li>
-        <li>Mental Health & Life Coaching - Ksh 1,800</li>
-        <li>Psychological Consultations & Assessments - Ksh 2,800 1hr</li>
-        <li>Schools & Institutions Mentorship Counselling or Training - ksh 13,500(within Mombasa)/ ksh18,500(outside Mombasa)(3-5 hours)</li>
-        <li>Organizations Psychological Services - ksh 18,500 (within Mombasa)/ ksh 23,200(oustide Mombasa)</li>
-        <li>Corporate Wellness Counselling & Training - Ksh 27,500</li>
-        <li>Court Annexed Meditation/Arbitration Consultancy - ksh 12,000 (2-3 hours)</li>
-    </ul>
-    
-    <a href="/booking" class="btn">Book Appointment</a>
+</section>
+
+<!-- Services Section -->
+<section class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Individual Therapy</h3>
+                <p class="service-price">ksh 1,800</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Group Counseling</h3>
+                <p class="service-price">ksh 3,500</p>
+                <p class="service-duration">1.5 hours session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Marriage/Couples Therapy</h3>
+                <p class="service-price">Ksh 2,800</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>Relationship Therapy</h3>
+                <p class="service-price">Ksh 2,500</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h3>Children / Teenage Counselling</h3>
+                <p class="service-price">Ksh 1,500</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Career Counselling</h3>
+                <p class="service-price">Ksh 1,800</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Mental Health & Life Coaching</h3>
+                <p class="service-price">Ksh 1,800</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>Psychological Consultations & Assessments</h3>
+                <p class="service-price">Ksh 2,800</p>
+                <p class="service-duration">1 hour session</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <h3>Schools & Institutions Mentorship</h3>
+                <p class="service-price">ksh 13,500 - 18,500</p>
+                <p class="service-duration">3-5 hours</p>
+                <p class="service-location">📍 Within/Outside Mombasa</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Organizations Psychological Services</h3>
+                <p class="service-price">ksh 18,500 - 23,200</p>
+                <p class="service-location">📍 Within/Outside Mombasa</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h3>Corporate Wellness Counselling</h3>
+                <p class="service-price">Ksh 27,500</p>
+                <p class="service-duration">Full day training</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3>Court Annexed Meditation</h3>
+                <p class="service-price">ksh 12,000</p>
+                <p class="service-duration">2-3 hours</p>
+                <p class="service-note">Arbitration Consultancy</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+    <div class="container">
+        <div class="about-content">
+            <h2>About Miss Somoe Rajab</h2>
+            <p>With a Bachelor of Arts in Counseling Psychology from KCA University, I provide compassionate and professional psychological services tailored to your unique needs. My approach combines evidence-based techniques with personalized care in a safe, confidential environment.</p>
+            <div class="about-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Licensed Counseling Psychologist</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Kenya Psychological Association Member</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Mombasa-Based Practice</span>
+                </div>
+            </div>
+            <a href="/about" class="btn btn-secondary">Learn More About Me</a>
+        </div>
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='images/photo3.jpg') }}" 
+                 alt="Miss Somoe Rajab - Counseling Psychologist">
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Begin Your Journey?</h2>
+        <p>Take the first step towards better mental health today.</p>
+        <a href="/booking" class="btn btn-primary">Schedule Your Session</a>
+    </div>
+</section>
 {% endblock %}

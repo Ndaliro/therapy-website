@@ -4,15 +4,19 @@
     <h2>All Appointments</h2>
     
     {% if appointments %}
-        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px;">
             <thead>
                 <tr style="background: #4a6fa5; color: white;">
-                    <th style="padding: 10px; text-align: left;">ID</th>
+                    <th style="padding: 10px; text-align: left;">No</th>
                     <th style="padding: 10px; text-align: left;">Name</th>
+                    <th style="padding: 10px; text-align: left;">ID Number</th>
                     <th style="padding: 10px; text-align: left;">Email</th>
                     <th style="padding: 10px; text-align: left;">Phone</th>
                     <th style="padding: 10px; text-align: left;">Service</th>
                     <th style="padding: 10px; text-align: left;">Date</th>
+                    <th style="padding: 10px; text-align: left;">Time</th>
+                    <th style="padding: 10px; text-align: left;">Status</th>
+                    <th style="padding: 10px; text-align: left;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,10 +24,47 @@
                 <tr style="border-bottom: 1px solid #ddd;">
                     <td style="padding: 10px;">{{ appt.id }}</td>
                     <td style="padding: 10px;">{{ appt.name }}</td>
+                    <td style="padding: 10px;">
+    {% if appt.id_number %}
+        {{ appt.id_number }}
+    {% else %}
+        <span style="color: #999;">Not provided</span>
+    {% endif %}
+</td>
                     <td style="padding: 10px;">{{ appt.email }}</td>
                     <td style="padding: 10px;">{{ appt.phone }}</td>
                     <td style="padding: 10px;">{{ appt.service }}</td>
                     <td style="padding: 10px;">{{ appt.date }}</td>
+                    <td style="padding: 10px;">{{ appt.time }}</td>
+                    
+                    <!-- STATUS COLUMN -->
+                    <td style="padding: 10px;">
+                        {% if appt.status == 'completed' %}
+                            <span style="background: green; color: white; padding: 5px 10px; border-radius: 3px;">
+                                Completed
+                            </span>
+                        {% elif appt.status == 'no-show' %}
+                            <span style="background: red; color: white; padding: 5px 10px; border-radius: 3px;">
+                                No Show
+                            </span>
+                        {% else %}
+                            <span style="background: blue; color: white; padding: 5px 10px; border-radius: 3px;">
+                                Scheduled
+                            </span>
+                        {% endif %}
+                    </td>
+                    
+                    <!-- ACTIONS COLUMN -->
+                    <td style="padding: 10px;">
+                        <button onclick="markCompleted('{{ appt.id }}')" 
+                                style="background: green; color: white; border: none; padding: 5px 10px; margin: 2px; border-radius: 3px; cursor: pointer;">
+                            ✓ Done
+                        </button>
+                        <button onclick="markNoShow('{{ appt.id }}')" 
+                                style="background: red; color: white; border: none; padding: 5px 10px; margin: 2px; border-radius: 3px; cursor: pointer;">
+                            ✗ No Show
+                        </button>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -33,4 +74,33 @@
     {% endif %}
     
     <a href="/" class="btn" style="margin-top: 30px;">Back to Home</a>
+    
+    <script>
+    function markCompleted(appointmentId) {
+        if (confirm('Mark this appointment as completed?')) {
+            updateStatus(appointmentId, 'completed');
+        }
+    }
+    
+    function markNoShow(appointmentId) {
+        if (confirm('Mark this as no-show?')) {
+            updateStatus(appointmentId, 'no-show');
+        }
+    }
+    
+    function updateStatus(appointmentId, status) {
+        fetch('/update-status/' + appointmentId, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({status: status})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Status updated!');
+                location.reload();
+            }
+        });
+    }
+    </script>
 {% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: 0 auto;">
+    <!-- Therapist Header -->
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1>Meet Your Therapist</h1>
+        <p style="font-size: 18px; color: #666;">Professional, Compassionate, and Dedicated to Your Wellbeing</p>
+    </div>
+    
+    <!-- Therapist Profile -->
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start;">
+        
+        <!-- Photo Side -->
+        <div>
+            <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="{{ url_for('static', filename='images/photo.jpg') }}" 
+                     alt="Miss Somoe Rajab" 
+                     style="width: 100%; height: auto; border-radius: 15px;">
+            </div>
+            
+            <!-- Contact Info -->
+            <div style="margin-top: 20px; background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                <h3 style="margin-top: 0;">Contact</h3>
+                <p>📧 somoerajab90@gmail.com</p>
+                <p>📞 0707828164</p>
+                <p>📍 Mombasa, Kenya</p>
+                
+                <h3>Languages</h3>
+                <p>English, Swahili</p>
+                
+                <h3>Office Hours</h3>
+                <p>Mon-Fri: 9AM - 5PM</p>
+                <p>Sat: 10AM - 2PM</p>
+                <p>Sun: Closed</p>
+            </div>
+        </div>
+        
+        <!-- Bio Side -->
+        <div>
+            <!-- FIXED: Her real name here -->
+            <h2 style="color: #4a6fa5; margin-top: 0;">Miss Somoe Rajab</h2>
+            <p style="font-size: 18px; color: #666; margin-bottom: 30px;">
+                Counseling Psychologist
+            </p>
+            
+            <div style="margin-bottom: 30px;">
+                <h3>About Me</h3>
+                <p>I am a passionate psychologist dedicated to helping individuals overcome life's challenges and achieve mental wellbeing. My approach combines evidence-based techniques with personalized care, creating a safe and supportive environment for healing and growth.</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3>Education & Qualifications</h3>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Bachelor of Arts in Counseling Psychology</strong> - KCA University</li>
+                    <li>Registered Member - Kenya Psychological Association</li>
+                </ul>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3>My Approach</h3>
+                <p>I believe in a collaborative approach to therapy. Together, we'll work to understand your unique experiences and develop strategies to help you navigate life's challenges. My practice is grounded in:</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Compassion:</strong> Creating a judgment-free space</li>
+                    <li><strong>Evidence-Based Practice:</strong> Using proven therapeutic techniques</li>
+                    <li><strong>Client-Centered Care:</strong> Tailoring therapy to your specific needs</li>
+                    <li><strong>Confidentiality:</strong> Ensuring your privacy and trust</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Areas of Specialization</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                    <span style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px;">Anxiety & Stress</span>
+                    <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 15px; border-radius: 20px;">Depression</span>
+                    <span style="background: #e8f5e9; color: #2e7d32; padding: 8px 15px; border-radius: 20px;">Relationship Issues</span>
+                    <span style="background: #fff3e0; color: #ef6c00; padding: 8px 15px; border-radius: 20px;">Trauma & PTSD</span>
+                    <span style="background: #fce4ec; color: #c2185b; padding: 8px 15px; border-radius: 20px;">Self-Esteem</span>
+                    <span style="background: #e0f2f1; color: #00695c; padding: 8px 15px; border-radius: 20px;">Life Transitions</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div style="text-align: center; margin-top: 50px; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
+        <h2 style="color: white; margin-top: 0;">Ready to Begin Your Journey?</h2>
+        <p style="font-size: 18px; margin-bottom: 30px;">Take the first step towards better mental health today.</p>
+        <a href="/booking" class="btn" style="background: white; color: #764ba2; font-weight: bold; padding: 15px 40px; font-size: 18px; text-decoration: none; border-radius: 50px; display: inline-block;">
+            Book Your First Session
+        </a>
+    </div>
+</div>
+{% endblock %}
