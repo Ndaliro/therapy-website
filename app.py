@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from flask_mail import Mail, Message
 from datetime import datetime, timedelta
 import os
 import json
