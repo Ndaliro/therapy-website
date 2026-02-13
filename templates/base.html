@@ -22,8 +22,10 @@
             <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="/about">About</a>
+                <a href="/services">Services</a>
                 <a href="/resources">Resources</a> 
                 <a href="/faq">FAQ</a>
+                <a href="/contact">Contact</a>
                 <a href="/calendar">Book Now</a>
                 <a href="/view-appointments">Admin</a>
             </div>
@@ -61,7 +63,7 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p><i class="fas fa-envelope"></i> somoerajab90@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 0707828164</p>
+                    <p><i class="fas fa-phone"></i> 0787143571 / 0707828164</p>
                     <p><i class="fas fa-map-marker-alt"></i> Mombasa, Kenya</p>
                 </div>
                 <div class="footer-section">
@@ -78,5 +80,90 @@
     </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- WhatsApp Floating Button -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(18, 140, 126, 0.4);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 80px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+    
+    .whatsapp-tooltip {
+        display: none;
+    }
+}
+</style>
+
+<a href="https://wa.me/254707828164?text=Hello%20Miss%20Somoe%2C%20I%27d%20like%20to%20inquire%20about%20your%20therapy%20services." 
+   class="whatsapp-float" 
+   target="_blank"
+   title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with us</span>
+</a>
 </body>
 </html>

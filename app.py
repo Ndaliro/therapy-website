@@ -206,5 +206,39 @@ def resources():
     current_year = datetime.now().year
     return render_template('resources.html', current_year=current_year)
 
+@app.route('/services')
+def services():
+    current_year = datetime.now().year
+    return render_template('services.html', current_year=current_year)
+
+@app.route('/debug-routes')
+def debug_routes():
+    routes = []
+    for rule in app.url_map.iter_rules():
+        routes.append(str(rule))
+    return "<br>".join(routes)
+
+@app.route('/contact')
+def contact():
+    current_year = datetime.now().year
+    return render_template('contact.html', current_year=current_year)
+
+@app.route('/contact-submit', methods=['POST'])
+def contact_submit():
+    # Get form data
+    name = request.form.get('name')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+    subject = request.form.get('subject')
+    message = request.form.get('message')
+    
+    # For now, just flash a success message
+    flash('Thank you for your message! We will get back to you within 24 hours.')
+    
+    # Later we can add email notification here
+    # send_contact_notification(name, email, phone, subject, message)
+    
+    return redirect('/contact')
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)
+
